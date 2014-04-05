@@ -9,8 +9,8 @@
 #import "RBWCourseTableViewCell.h"
 
 @implementation RBWCourseTableViewCell
-@synthesize courseLabel = _courseLabel;
-@synthesize schoolLabel = _schoolLabel;
+@synthesize courseLabel;
+@synthesize schoolLable;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
