@@ -10,6 +10,7 @@
 #import "RBWTClassCreatorViewController.h"
 #import "RBWCourse.h"
 #import "RBWAppDelegate.h"
+#import "RBWCourseTableViewCell.h"
 #import <Parse/Parse.h>
 
 @interface RBWTeacherTableViewController ()
@@ -77,14 +78,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"CustomCell";
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     RBWCourse *item = [_courses objectAtIndex:indexPath.row];
-    cell.textLabel.text = [item getString];//item.course;
+    cell.textLabel.text = [item getString];//item.course;*/
     // Configure the cell...
     
-    
+    RBWCourseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSLog(@"Called");
+        //NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RBWCourseTableViewCell" owner:self options:nil];
+        //cell = [nib objectAtIndex:0];
+        [tableView registerNib:[UINib nibWithNibName:@"RBWCourseTableViewCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    }
+    RBWCourse *item = [_courses objectAtIndex:indexPath.row];
+    cell.schoolLable.text = item.school;
+    cell.courseLabel.text = item.course;
+
     return cell;
 }
 

@@ -22,6 +22,7 @@
 		3DBDBCA918F2893C006658EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBDBC9118F2893C006658EC /* UIKit.framework */; };
 		3DBDBCB118F2893C006658EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DBDBCAF18F2893C006658EC /* InfoPlist.strings */; };
 		3DBDBCB318F2893C006658EC /* confidenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDBCB218F2893C006658EC /* confidenceTests.m */; };
+		3DBF2490191615450082DE74 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBF248F191615450082DE74 /* TableCell.xib */; };
 		3DDAB87918F32530006E4AC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDAB87818F32530006E4AC9 /* AudioToolbox.framework */; };
 		3DDAB88218F32576006E4AC9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDAB87A18F32576006E4AC9 /* CFNetwork.framework */; };
 		3DDAB88318F32576006E4AC9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDAB87B18F32576006E4AC9 /* CoreLocation.framework */; };
@@ -39,7 +40,6 @@
 		3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */; };
 		3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */; };
 		3DDAB8A618F4A2DA006E4AC9 /* RBWStudentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */; };
-		3DDF68BD1911C63800A05534 /* CourseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF68BC1911C63800A05534 /* CourseTableCell.xib */; };
 		3DDF68C01911C8D200A05534 /* RBWCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */; };
 		3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */; };
 		3DF81C7818F9C93400F46EA2 /* RBWTeacherClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7718F9C93400F46EA2 /* RBWTeacherClassViewController.m */; };
@@ -156,6 +156,7 @@
 		3DBDBCAE18F2893C006658EC /* confidenceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "confidenceTests-Info.plist"; sourceTree = "<group>"; };
 		3DBDBCB018F2893C006658EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DBDBCB218F2893C006658EC /* confidenceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = confidenceTests.m; sourceTree = "<group>"; };
+		3DBF248F191615450082DE74 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		3DDAB87818F32530006E4AC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3DDAB87A18F32576006E4AC9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3DDAB87B18F32576006E4AC9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -180,7 +181,6 @@
 		3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWSelectCoursesTableViewController.m; sourceTree = "<group>"; };
 		3DDAB8A418F4A2DA006E4AC9 /* RBWStudentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWStudentTableViewController.h; sourceTree = "<group>"; };
 		3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWStudentTableViewController.m; sourceTree = "<group>"; };
-		3DDF68BC1911C63800A05534 /* CourseTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseTableCell.xib; path = ../CourseTableCell.xib; sourceTree = "<group>"; };
 		3DDF68BE1911C8D200A05534 /* RBWCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWCourseTableViewCell.h; sourceTree = "<group>"; };
 		3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWCourseTableViewCell.m; sourceTree = "<group>"; };
 		3DF81C7318F667AF00F46EA2 /* RBWFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWFeelingViewController.h; sourceTree = "<group>"; };
@@ -361,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				3DDAB88F18F349CD006E4AC9 /* RBWRegisterViewController.h */,
-				3DDF68BC1911C63800A05534 /* CourseTableCell.xib */,
 				3DDAB89018F349CD006E4AC9 /* RBWRegisterViewController.m */,
 				3DBDBC9C18F2893C006658EC /* RBWAppDelegate.h */,
 				3D3FFAF519132404009023AA /* MBProgressHUD.h */,
@@ -389,6 +388,7 @@
 				3DF81C7D18FA272300F46EA2 /* RBWSentiment.m */,
 				3DDF68BE1911C8D200A05534 /* RBWCourseTableViewCell.h */,
 				3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */,
+				3DBF248F191615450082DE74 /* TableCell.xib */,
 			);
 			path = confidence;
 			sourceTree = "<group>";
@@ -499,8 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDAB88E18F32C71006E4AC9 /* Main.storyboard in Resources */,
-				3DDF68BD1911C63800A05534 /* CourseTableCell.xib in Resources */,
 				3DBDBC9818F2893C006658EC /* InfoPlist.strings in Resources */,
+				3DBF2490191615450082DE74 /* TableCell.xib in Resources */,
 				3DBDBCA018F2893C006658EC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

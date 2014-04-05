@@ -10,7 +10,7 @@
 
 @interface RBWCourseTableViewCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *courseLabel;
-@property (nonatomic, weak) IBOutlet UILabel *schoolLabel;
+@property (weak, nonatomic) IBOutlet UILabel *schoolLable;
+@property (weak, nonatomic) IBOutlet UILabel *courseLabel;
 
 @end
