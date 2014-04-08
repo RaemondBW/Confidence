@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="-66" y="449"/>
         </scene>
-        <!--Table View Controller - My Courses-->
+        <!--Student Table View Controller - My Courses-->
         <scene sceneID="yHA-nk-Uw2">
             <objects>
-                <tableViewController id="I7g-zp-gv1" sceneMemberID="viewController">
+                <tableViewController id="I7g-zp-gv1" customClass="RBWStudentTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y9I-sT-YSA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,12 +150,57 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Courses" id="Nf5-2j-yQq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oxl-oi-FDZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oxl-oi-FDZ">
+                            <connections>
+                                <segue destination="BnF-zn-6ke" kind="modal" id="Q6Q-wj-JBi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPy-1o-iqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="938" y="56"/>
+        </scene>
+        <!--Select Courses Table View Controller - Pick your Courses-->
+        <scene sceneID="tUE-Ot-cWD">
+            <objects>
+                <tableViewController title="Pick your Courses" id="ked-F7-Ihu" customClass="RBWSelectCoursesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CH5-vz-sUY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="dFu-CV-IXA">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFu-CV-IXA" id="5Au-yW-Mfc">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ked-F7-Ihu" id="ikh-l4-B7E"/>
+                            <outlet property="delegate" destination="ked-F7-Ihu" id="F6H-4B-tfh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pick Your Courses" id="hOb-CD-36T">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y0i-H4-NUe">
+                            <connections>
+                                <segue destination="5zR-SG-n8r" kind="unwind" unwindAction="unwindToList:" id="KCZ-QC-TI7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uI3-Ij-zCW">
+                            <connections>
+                                <segue destination="5zR-SG-n8r" kind="unwind" unwindAction="unwindToList:" id="eX4-08-d55"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzX-qA-z0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5zR-SG-n8r" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="56"/>
         </scene>
         <!--Teacher Table View Controller - My Courses-->
         <scene sceneID="fhf-48-y3x">
@@ -385,6 +430,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTW-8R-4iA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1372" y="803"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WEp-Cf-ABW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BnF-zn-6ke" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jf5-Hu-LMY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ked-F7-Ihu" kind="relationship" relationship="rootViewController" id="acU-Qn-8AR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZE-PV-2lL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="56"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
