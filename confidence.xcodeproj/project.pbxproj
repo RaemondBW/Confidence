@@ -32,6 +32,9 @@
 		3DDAB88C18F32ACD006E4AC9 /* RBWLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB88B18F32ACD006E4AC9 /* RBWLogInViewController.m */; };
 		3DDAB88E18F32C71006E4AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDAB88D18F32C71006E4AC9 /* Main.storyboard */; };
 		3DDAB89118F349CD006E4AC9 /* RBWRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89018F349CD006E4AC9 /* RBWRegisterViewController.m */; };
+		3DDAB89718F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89618F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m */; };
+		3DDAB89D18F3B787006E4AC9 /* RBWTeacherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89C18F3B787006E4AC9 /* RBWTeacherTableViewController.m */; };
+		3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,12 @@
 		3DDAB88D18F32C71006E4AC9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = confidence/Main.storyboard; sourceTree = "<group>"; };
 		3DDAB88F18F349CD006E4AC9 /* RBWRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBWRegisterViewController.h; path = ../RBWRegisterViewController.h; sourceTree = "<group>"; };
 		3DDAB89018F349CD006E4AC9 /* RBWRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBWRegisterViewController.m; path = ../RBWRegisterViewController.m; sourceTree = "<group>"; };
+		3DDAB89518F3B3E8006E4AC9 /* RBWTClassCreatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWTClassCreatorViewController.h; sourceTree = "<group>"; };
+		3DDAB89618F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWTClassCreatorViewController.m; sourceTree = "<group>"; };
+		3DDAB89B18F3B787006E4AC9 /* RBWTeacherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWTeacherTableViewController.h; sourceTree = "<group>"; };
+		3DDAB89C18F3B787006E4AC9 /* RBWTeacherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWTeacherTableViewController.m; sourceTree = "<group>"; };
+		3DDAB89E18F3B875006E4AC9 /* RBWCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWCourse.h; sourceTree = "<group>"; };
+		3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWCourse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +173,12 @@
 				3DDAB88B18F32ACD006E4AC9 /* RBWLogInViewController.m */,
 				3DBDBC9F18F2893C006658EC /* Images.xcassets */,
 				3DBDBC9418F2893C006658EC /* Supporting Files */,
+				3DDAB89518F3B3E8006E4AC9 /* RBWTClassCreatorViewController.h */,
+				3DDAB89618F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m */,
+				3DDAB89B18F3B787006E4AC9 /* RBWTeacherTableViewController.h */,
+				3DDAB89C18F3B787006E4AC9 /* RBWTeacherTableViewController.m */,
+				3DDAB89E18F3B875006E4AC9 /* RBWCourse.h */,
+				3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */,
 			);
 			path = confidence;
 			sourceTree = "<group>";
@@ -294,10 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDAB89D18F3B787006E4AC9 /* RBWTeacherTableViewController.m in Sources */,
 				3DBDBC9E18F2893C006658EC /* RBWAppDelegate.m in Sources */,
 				3DDAB89118F349CD006E4AC9 /* RBWRegisterViewController.m in Sources */,
+				3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */,
 				3DBDBC9A18F2893C006658EC /* main.m in Sources */,
 				3DDAB88C18F32ACD006E4AC9 /* RBWLogInViewController.m in Sources */,
+				3DDAB89718F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
