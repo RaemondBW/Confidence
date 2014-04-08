@@ -7,6 +7,7 @@
 //
 
 #import "RBWTClassCreatorViewController.h"
+#import <Parse/Parse.h>
 
 @interface RBWTClassCreatorViewController ()
 
@@ -57,6 +58,11 @@
         _course = [[RBWCourse alloc] init];
         _course.school = _schoolName.text;
         _course.course = _courseName.text;
+        PFObject *classObject = [PFObject objectWithClassName:@"courses"];
+        classObject[@"school"] = _schoolName.text;
+        classObject[@"courseName"] = _courseName.text;
+        classObject[@"teacher"] = [PFUser currentUser];
+        [classObject saveInBackground];
     }
 }
 

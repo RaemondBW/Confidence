@@ -9,6 +9,7 @@
 #import "RBWTeacherTableViewController.h"
 #import "RBWTClassCreatorViewController.h"
 #import "RBWCourse.h"
+#import <Parse/Parse.h>
 
 @interface RBWTeacherTableViewController ()
 
@@ -43,6 +44,7 @@
     [super viewDidLoad];
     
     _courses = [[NSMutableArray alloc] init];
+    [self loadCoursesFromParse];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,6 +85,29 @@
     
     
     return cell;
+}
+
+- (void) loadCoursesFromParse
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"courses"];
+    [query whereKey:@"teacher" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            //NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                RBWCourse *class = [[RBWCourse alloc] init];
+                class.course = object[@"courseName"];
+                class.school = object[@"school"];
+                [self.courses addObject:class];
+            }
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 
