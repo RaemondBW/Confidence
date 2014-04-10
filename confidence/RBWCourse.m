@@ -10,6 +10,11 @@
 
 @implementation RBWCourse
 
+- (void) RBWCourse
+{
+    _changed = NO;
+}
+
 - (NSString *) getString
 {
     NSString *result = _school;

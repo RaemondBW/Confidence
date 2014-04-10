@@ -7,8 +7,14 @@
 //
 
 #import "RBWStudentTableViewController.h"
+#import "RBWSelectCoursesTableViewController.h"
+#import "RBWCourse.h"
+#import <Parse/Parse.h>
 
 @interface RBWStudentTableViewController ()
+
+@property NSMutableArray *courses;
+@property RBWCourse *chosen;
 
 @end
 
@@ -25,12 +31,25 @@
 
 -(IBAction) unwindToList:(UIStoryboardSegue *)segue
 {
-    return;
+    RBWSelectCoursesTableViewController *source = [segue sourceViewController];
+    NSMutableArray *classes = source.courses;
+    if (classes != nil) {
+        for (RBWCourse *class in classes) {
+            if (class.member && ![_courses containsObject:[class getString]]) {
+                [_courses addObject:[class getString]];
+            }
+        }
+        //[self.toDoItems addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _courses = [[NSMutableArray alloc] init];
+    
+    // TODO here is where we would load the courses that we are already a member of.
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,28 +68,76 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_courses count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSString *item = [_courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = item;
     // Configure the cell...
     
     return cell;
 }
-*/
+
+- (void) loadDataFromParse
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"courses"];
+    //[query whereKey:@"teacher" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            //NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                RBWCourse *class = [[RBWCourse alloc] init];
+                class.course = object[@"courseName"];
+                class.school = object[@"school"];
+                class.objectID = [object objectId];
+                NSMutableArray *classmates = object[@"students"];
+                
+                if ([classmates count] == 0) {
+                    class.member = NO;
+                }
+                
+                for (PFUser *student in classmates) {
+                    if ([[student objectId] compare:[[PFUser currentUser] objectId]] == NSOrderedSame) { // TODO UGH Linear Time Search Get rid of this
+                        class.member = YES;
+                        break;
+                    } else {
+                        class.member = NO;
+                    }
+                }
+                /*if ([classmates containsObject:[PFUser currentUser]])
+                 class.member = YES;
+                 else
+                 class.member = NO;*/
+                [self.courses addObject:class];
+            }
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _chosen = [_courses objectAtIndex:indexPath.row];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -110,7 +177,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,6 +186,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
