@@ -415,10 +415,10 @@
             </objects>
             <point key="canvasLocation" x="1372" y="803"/>
         </scene>
-        <!--View Controller - Course View-->
+        <!--Feeling View Controller - Course View-->
         <scene sceneID="jsZ-1e-gIK">
             <objects>
-                <viewController id="MQj-4w-eAx" sceneMemberID="viewController">
+                <viewController id="MQj-4w-eAx" customClass="RBWFeelingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4TD-Zo-OOR"/>
                         <viewControllerLayoutGuide type="bottom" id="9zc-Bx-bGk"/>
@@ -434,6 +434,9 @@
                                 <state key="normal" title="I understand :)">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goodButton:" destination="MQj-4w-eAx" eventType="touchUpInside" id="ogc-Qe-KsR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l65-D1-3kg">
                                 <rect key="frame" x="94" y="302" width="133" height="38"/>
@@ -442,6 +445,9 @@
                                 <state key="normal" title="Neutral :|">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="neutralButton:" destination="MQj-4w-eAx" eventType="touchUpInside" id="6km-8K-gti"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NN-qs-7sV">
                                 <rect key="frame" x="67" y="369" width="186" height="38"/>
@@ -450,6 +456,9 @@
                                 <state key="normal" title="I don't understand :(">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="badButton:" destination="MQj-4w-eAx" eventType="touchUpInside" id="E3m-tM-nyl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asx-Xr-AOv">
                                 <rect key="frame" x="152" y="273" width="16" height="21"/>

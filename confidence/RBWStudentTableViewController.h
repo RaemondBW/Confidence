@@ -10,4 +10,6 @@
 
 @interface RBWStudentTableViewController : UITableViewController
 
+@property NSString *chosen;
+
 @end

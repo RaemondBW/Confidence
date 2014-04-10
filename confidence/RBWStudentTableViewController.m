@@ -14,7 +14,6 @@
 @interface RBWStudentTableViewController ()
 
 @property NSMutableArray *courses;
-@property RBWCourse *chosen;
 
 @end
 
@@ -48,6 +47,7 @@
 {
     [super viewDidLoad];
     _courses = [[NSMutableArray alloc] init];
+    [self loadDataFromParse];
     
     // TODO here is where we would load the courses that we are already a member of.
     
@@ -95,36 +95,19 @@
 - (void) loadDataFromParse
 {
     PFQuery *query = [PFQuery queryWithClassName:@"courses"];
-    //[query whereKey:@"teacher" equalTo:[PFUser currentUser]];
+    [query whereKey:@"students" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            //NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            NSLog(@"Successfully retrieved %lu courses.", (unsigned long)objects.count);
             // Do something with the found objects
             for (PFObject *object in objects) {
                 RBWCourse *class = [[RBWCourse alloc] init];
                 class.course = object[@"courseName"];
                 class.school = object[@"school"];
+                class.member = YES;
                 class.objectID = [object objectId];
-                NSMutableArray *classmates = object[@"students"];
-                
-                if ([classmates count] == 0) {
-                    class.member = NO;
-                }
-                
-                for (PFUser *student in classmates) {
-                    if ([[student objectId] compare:[[PFUser currentUser] objectId]] == NSOrderedSame) { // TODO UGH Linear Time Search Get rid of this
-                        class.member = YES;
-                        break;
-                    } else {
-                        class.member = NO;
-                    }
-                }
-                /*if ([classmates containsObject:[PFUser currentUser]])
-                 class.member = YES;
-                 else
-                 class.member = NO;*/
-                [self.courses addObject:class];
+                [self.courses addObject:[class getString]];
             }
             [self.tableView reloadData];
         } else {

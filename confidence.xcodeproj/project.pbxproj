@@ -37,6 +37,7 @@
 		3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */; };
 		3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */; };
 		3DDAB8A618F4A2DA006E4AC9 /* RBWStudentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */; };
+		3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWSelectCoursesTableViewController.m; sourceTree = "<group>"; };
 		3DDAB8A418F4A2DA006E4AC9 /* RBWStudentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWStudentTableViewController.h; sourceTree = "<group>"; };
 		3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWStudentTableViewController.m; sourceTree = "<group>"; };
+		3DF81C7318F667AF00F46EA2 /* RBWFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWFeelingViewController.h; sourceTree = "<group>"; };
+		3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWFeelingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,8 @@
 				3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */,
 				3DDAB8A118F46D94006E4AC9 /* RBWSelectCoursesTableViewController.h */,
 				3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */,
+				3DF81C7318F667AF00F46EA2 /* RBWFeelingViewController.h */,
+				3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */,
 				3DDAB8A418F4A2DA006E4AC9 /* RBWStudentTableViewController.h */,
 				3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */,
 			);
@@ -328,6 +333,7 @@
 				3DDAB88C18F32ACD006E4AC9 /* RBWLogInViewController.m in Sources */,
 				3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */,
 				3DDAB89718F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m in Sources */,
+				3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
