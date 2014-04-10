@@ -14,6 +14,8 @@
 - (IBAction)neutralButton:(id)sender;
 - (IBAction)badButton:(id)sender;
 
+@property NSString *course;
+
 - (IBAction) unwindToString:(UIStoryboardSegue *) segue;
 
 @end

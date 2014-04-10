@@ -9,11 +9,13 @@
 #import "RBWStudentTableViewController.h"
 #import "RBWSelectCoursesTableViewController.h"
 #import "RBWCourse.h"
+#import "RBWFeelingViewController.h"
 #import <Parse/Parse.h>
 
 @interface RBWStudentTableViewController ()
 
 @property NSMutableArray *courses;
+@property RBWFeelingViewController *controller;
 
 @end
 
@@ -120,6 +122,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _chosen = [_courses objectAtIndex:indexPath.row];
+    NSLog(@"Set chosen course");
+    _controller.course = _chosen;
 }
 
 /*
@@ -166,8 +170,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"prepare for segue");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    _controller = (RBWFeelingViewController *) segue.destinationViewController;
 }
 
 
