@@ -27,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"view did load called");
+    if (_course != nil)
+        NSLog(_course);
+    UINavigationController *navCon  = (UINavigationController*) [self.navigationController.viewControllers objectAtIndex:1];
+    navCon.navigationItem.title = _course;
     // Do any additional setup after loading the view.
 }
 
@@ -38,12 +43,12 @@
 
 - (IBAction) unwindToString:(UIStoryboardSegue *) segue
 {
-    RBWStudentTableViewController *source = [segue sourceViewController];
+    /*RBWStudentTableViewController *source = [segue sourceViewController];
     NSString *course = source.chosen;
     NSLog(@"Ran unwindToString");
     if (course != nil) {
         NSLog(course);
-    }
+    }*/
 
 }
 
