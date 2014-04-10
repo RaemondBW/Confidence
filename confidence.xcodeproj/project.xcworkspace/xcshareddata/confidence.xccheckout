@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9056716A-E9B7-4CD5-B787-1AAC554D7F25</string>
+	<key>IDESourceControlProjectName</key>
+	<string>confidence</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>53B044CD-F85C-47FB-93D0-C325B4F70D77</key>
+		<string>ssh://github.com/RaemondBW/Confidence.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>confidence.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>53B044CD-F85C-47FB-93D0-C325B4F70D77</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/RaemondBW/Confidence.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>53B044CD-F85C-47FB-93D0-C325B4F70D77</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>53B044CD-F85C-47FB-93D0-C325B4F70D77</string>
+			<key>IDESourceControlWCCName</key>
+			<string>confidence</string>
+		</dict>
+	</array>
+</dict>
+</plist>

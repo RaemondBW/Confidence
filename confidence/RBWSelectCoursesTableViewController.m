@@ -11,8 +11,9 @@
 #import "RBWCourse.h"
 
 @interface RBWSelectCoursesTableViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
-@property NSMutableArray *courses;
+//@property NSMutableArray *memberCourses;
 
 @end
 
@@ -39,6 +40,15 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    RBWCourse *tappedItem = [_courses objectAtIndex:indexPath.row];
+    tappedItem.member = !tappedItem.member;
+    tappedItem.changed = !tappedItem.changed;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -49,14 +59,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_courses count];
 }
@@ -74,6 +82,25 @@
                 RBWCourse *class = [[RBWCourse alloc] init];
                 class.course = object[@"courseName"];
                 class.school = object[@"school"];
+                class.objectID = [object objectId];
+                NSMutableArray *classmates = object[@"students"];
+                
+                if ([classmates count] == 0) {
+                    class.member = NO;
+                }
+                
+                for (PFUser *student in classmates) {
+                    if ([[student objectId] compare:[[PFUser currentUser] objectId]] == NSOrderedSame) { // TODO UGH Linear Time Search Get rid of this
+                        class.member = YES;
+                        break;
+                    } else {
+                        class.member = NO;
+                    }
+                }
+                /*if ([classmates containsObject:[PFUser currentUser]])
+                    class.member = YES;
+                else
+                    class.member = NO;*/
                 [self.courses addObject:class];
             }
             [self.tableView reloadData];
@@ -93,18 +120,35 @@
     // Configure the cell...
     RBWCourse *item = [_courses objectAtIndex:indexPath.row];
     cell.textLabel.text = [item getString];
+    if (item.member) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    return;
-    /*if (sender != self.doneButton) return;
-    if (self.textField.text.length > 0) {
-        self.toDoItem = [[QuizAppItem alloc] init];
-        self.toDoItem.itemName = self.textField.text;
-    }*/
+    if (sender != self.saveButton) return;
+    for (RBWCourse *class in _courses) {
+        if (class.changed) {
+            if (class.member) {
+                PFQuery *object = [PFQuery queryWithClassName:@"courses"];
+                [object getObjectInBackgroundWithId:class.objectID block:^(PFObject *classObject, NSError *error) {
+                    [classObject addObject:[PFUser currentUser] forKey:@"students"];
+                    [classObject saveInBackground];
+                }];
+            } else {
+                PFQuery *object = [PFQuery queryWithClassName:@"courses"];
+                [object getObjectInBackgroundWithId:class.objectID block:^(PFObject *classObject, NSError *error) {
+                    [classObject removeObject:[PFUser currentUser] forKey:@"students"];
+                    [classObject saveInBackground];
+                }];
+            }
+        }
+    }
 }
 
 

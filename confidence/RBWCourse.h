@@ -12,6 +12,9 @@
 
 @property NSString *school;
 @property NSString *course;
+@property NSString *objectID;
+@property BOOL member;
+@property BOOL changed;
 
 - (NSString *) getString;
 

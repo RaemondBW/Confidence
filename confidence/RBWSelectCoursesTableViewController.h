@@ -10,4 +10,6 @@
 
 @interface RBWSelectCoursesTableViewController : UITableViewController
 
+@property NSMutableArray *courses;
+
 @end
