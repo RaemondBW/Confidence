@@ -15,6 +15,7 @@
 @interface RBWStudentTableViewController ()
 
 @property NSMutableArray *courses;
+@property NSMutableSet *courseStrings;
 @property RBWFeelingViewController *controller;
 
 @end
@@ -36,8 +37,9 @@
     NSMutableArray *classes = source.courses;
     if (classes != nil) {
         for (RBWCourse *class in classes) {
-            if (class.member && ![_courses containsObject:[class getString]]) {
-                [_courses addObject:[class getString]];
+            if (class.member && ![_courseStrings containsObject:[class getString]]) {
+                [_courses addObject:class];
+                [_courseStrings addObject:[class getString]];
             }
         }
         //[self.toDoItems addObject:item];
@@ -49,6 +51,7 @@
 {
     [super viewDidLoad];
     _courses = [[NSMutableArray alloc] init];
+    _courseStrings = [[NSMutableSet alloc] init];
     [self loadDataFromParse];
     
     // TODO here is where we would load the courses that we are already a member of.
@@ -87,8 +90,8 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSString *item = [_courses objectAtIndex:indexPath.row];
-    cell.textLabel.text = item;
+    RBWCourse *item = [_courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = [item getString];
     // Configure the cell...
     
     return cell;
@@ -109,7 +112,8 @@
                 class.school = object[@"school"];
                 class.member = YES;
                 class.objectID = [object objectId];
-                [self.courses addObject:[class getString]];
+                [_courses addObject:class];
+                [_courseStrings addObject:[class getString]];
             }
             [self.tableView reloadData];
         } else {

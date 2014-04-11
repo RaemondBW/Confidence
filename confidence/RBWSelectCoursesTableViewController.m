@@ -97,10 +97,7 @@
                         class.member = NO;
                     }
                 }
-                /*if ([classmates containsObject:[PFUser currentUser]])
-                    class.member = YES;
-                else
-                    class.member = NO;*/
+                
                 [self.courses addObject:class];
             }
             [self.tableView reloadData];
