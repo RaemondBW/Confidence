@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBWCourse.h"
 
 @interface RBWFeelingViewController : UIViewController
 
@@ -14,7 +15,7 @@
 - (IBAction)neutralButton:(id)sender;
 - (IBAction)badButton:(id)sender;
 
-@property NSString *course;
+@property RBWCourse *course;
 
 - (IBAction) unwindToString:(UIStoryboardSegue *) segue;
 

@@ -17,5 +17,6 @@
 @property BOOL changed;
 
 - (NSString *) getString;
+- (id)copyWithZone:(NSZone *)zone;
 
 @end

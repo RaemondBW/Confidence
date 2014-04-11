@@ -8,6 +8,7 @@
 
 #import "RBWFeelingViewController.h"
 #import "RBWStudentTableViewController.h"
+#import <Parse/Parse.h>
 
 @interface RBWFeelingViewController ()
 
@@ -28,10 +29,11 @@
 {
     [super viewDidLoad];
     NSLog(@"view did load called");
-    if (_course != nil)
-        NSLog(_course);
+    if (_course != nil) {
+        NSLog([_course getString]);
+    }
     UINavigationController *navCon  = (UINavigationController*) [self.navigationController.viewControllers objectAtIndex:1];
-    navCon.navigationItem.title = _course;
+    navCon.navigationItem.title = [_course getString];
     // Do any additional setup after loading the view.
 }
 
@@ -64,13 +66,83 @@
 */
 
 - (IBAction)goodButton:(id)sender {
-    
+    NSLog(@"got to goodButton");
+    PFQuery *query = [PFQuery queryWithClassName:@"sentiment"];
+    [query whereKey:@"course" equalTo:[_course objectID]];
+    [query whereKey:@"student" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"got into the query area");
+        if (!error) {
+            //NSLog([NSString stringWithFormat:@"%lu", objects.count]);
+            if (objects.count == 0) {
+                PFObject *sentiment = [PFObject objectWithClassName:@"sentiment"];
+                sentiment[@"course"] = [_course objectID];
+                sentiment[@"student"] = [PFUser currentUser];
+                sentiment[@"sentiment"] = @3;
+                [sentiment saveInBackground];
+            }
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                object[@"sentiment"] = @3;
+                [object saveInBackground];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (IBAction)neutralButton:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"sentiment"];
+    [query whereKey:@"course" equalTo:[_course objectID]];
+    [query whereKey:@"student" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count == 0) {
+                PFObject *sentiment = [PFObject objectWithClassName:@"sentiment"];
+                sentiment[@"course"] = [_course objectID];
+                sentiment[@"student"] = [PFUser currentUser];
+                sentiment[@"sentiment"] = @2;
+                [sentiment saveInBackground];
+            }
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                object[@"sentiment"] = @2;
+                [object saveInBackground];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
 }
 
 - (IBAction)badButton:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"sentiment"];
+    [query whereKey:@"course" equalTo:[_course objectID]];
+    [query whereKey:@"student" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count == 0) {
+                PFObject *sentiment = [PFObject objectWithClassName:@"sentiment"];
+                sentiment[@"course"] = [_course objectID];
+                sentiment[@"student"] = [PFUser currentUser];
+                sentiment[@"sentiment"] = @1;
+                [sentiment saveInBackground];
+            }
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                object[@"sentiment"] = @1;
+                [object saveInBackground];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
 }
 
 @end

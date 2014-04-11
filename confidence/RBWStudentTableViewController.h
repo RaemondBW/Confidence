@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBWCourse.h"
 
 @interface RBWStudentTableViewController : UITableViewController
 
-@property NSString *chosen;
+@property RBWCourse *chosen;
 
 @end
