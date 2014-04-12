@@ -66,12 +66,10 @@
 */
 
 - (IBAction)goodButton:(id)sender {
-    NSLog(@"got to goodButton");
     PFQuery *query = [PFQuery queryWithClassName:@"sentiment"];
     [query whereKey:@"course" equalTo:[_course objectID]];
     [query whereKey:@"student" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"got into the query area");
         if (!error) {
             //NSLog([NSString stringWithFormat:@"%lu", objects.count]);
             if (objects.count == 0) {

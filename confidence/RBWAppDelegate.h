@@ -11,5 +11,6 @@
 @interface RBWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property BOOL pushNotifications;
 
 @end

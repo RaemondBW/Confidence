@@ -20,23 +20,41 @@
     [Parse setApplicationId:@"DT0YZ9S98VmZ4gEzPBWtppBkXjLtdRUXPO2kNYne"
                   clientKey:@"614blNkWxi9svkcydmTRFldtvHuepdwnPjZ5bbQo"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    /*PFUser *user = [PFUser user];
-    user.username = @"my name";
-    user.password = @"my pass";
-    user.email = @"email@example.com";
     
-    // other fields can be set if you want to save more information
-    user[@"phone"] = @"650-555-0000";
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+        UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeAlert |
+        UIRemoteNotificationTypeSound];
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // Hooray! Let them use the app now.
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            // Show the errorString somewhere and let the user try again.
-        }
-    }];*/
+    NSLog(@"got past push notifaction allowal");
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application
+        didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    _pushNotifications = YES;
+    NSLog(@"got to push notification registration with parse.");
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+        didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"Received push notification!");
+    NSLog(@"%@", [userInfo objectForKey:@"student"]);
+    int value = [userInfo objectForKey:@"value"];
+    
+    //[PFPush handlePush:userInfo];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    _pushNotifications = NO;
+    NSLog(@"%@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

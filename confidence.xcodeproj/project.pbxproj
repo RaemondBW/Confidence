@@ -38,6 +38,7 @@
 		3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */; };
 		3DDAB8A618F4A2DA006E4AC9 /* RBWStudentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */; };
 		3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */; };
+		3DF81C7818F9C93400F46EA2 /* RBWTeacherClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7718F9C93400F46EA2 /* RBWTeacherClassViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWStudentTableViewController.m; sourceTree = "<group>"; };
 		3DF81C7318F667AF00F46EA2 /* RBWFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWFeelingViewController.h; sourceTree = "<group>"; };
 		3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWFeelingViewController.m; sourceTree = "<group>"; };
+		3DF81C7618F9C93400F46EA2 /* RBWTeacherClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWTeacherClassViewController.h; sourceTree = "<group>"; };
+		3DF81C7718F9C93400F46EA2 /* RBWTeacherClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWTeacherClassViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,8 @@
 				3DBDBC9D18F2893C006658EC /* RBWAppDelegate.m */,
 				3DDAB88A18F32ACD006E4AC9 /* RBWLogInViewController.h */,
 				3DDAB88B18F32ACD006E4AC9 /* RBWLogInViewController.m */,
+				3DF81C7618F9C93400F46EA2 /* RBWTeacherClassViewController.h */,
+				3DF81C7718F9C93400F46EA2 /* RBWTeacherClassViewController.m */,
 				3DBDBC9F18F2893C006658EC /* Images.xcassets */,
 				3DBDBC9418F2893C006658EC /* Supporting Files */,
 				3DDAB89518F3B3E8006E4AC9 /* RBWTClassCreatorViewController.h */,
@@ -327,6 +332,7 @@
 				3DDAB89D18F3B787006E4AC9 /* RBWTeacherTableViewController.m in Sources */,
 				3DBDBC9E18F2893C006658EC /* RBWAppDelegate.m in Sources */,
 				3DDAB8A618F4A2DA006E4AC9 /* RBWStudentTableViewController.m in Sources */,
+				3DF81C7818F9C93400F46EA2 /* RBWTeacherClassViewController.m in Sources */,
 				3DDAB89118F349CD006E4AC9 /* RBWRegisterViewController.m in Sources */,
 				3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */,
 				3DBDBC9A18F2893C006658EC /* main.m in Sources */,
@@ -391,7 +397,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raemond Bergstrom-Wood (BVU564H352)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Raemond Bergstrom-Wood (BVU564H352)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -429,7 +436,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raemond Bergstrom-Wood (BVU564H352)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Raemond Bergstrom-Wood (BVU564H352)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
