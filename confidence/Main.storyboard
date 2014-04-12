@@ -418,10 +418,10 @@
             </objects>
             <point key="canvasLocation" x="1372" y="803"/>
         </scene>
-        <!--View Controller - Course View-->
+        <!--Teacher Class View Controller - Course View-->
         <scene sceneID="cnh-Px-H6r">
             <objects>
-                <viewController id="Yd6-ye-gOu" sceneMemberID="viewController">
+                <viewController id="Yd6-ye-gOu" customClass="RBWTeacherClassViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="07X-dB-JI1"/>
                         <viewControllerLayoutGuide type="bottom" id="92B-r8-9Bu"/>

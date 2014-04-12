@@ -100,6 +100,7 @@
                 RBWCourse *class = [[RBWCourse alloc] init];
                 class.course = object[@"courseName"];
                 class.school = object[@"school"];
+                class.objectID = [object objectId];
                 [self.courses addObject:class];
             }
             [self.tableView reloadData];
@@ -110,6 +111,22 @@
     }];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"called the selector in the teacher controller!");
+    NSString *channel = @"c";
+    channel = [channel stringByAppendingString:[[_courses objectAtIndex:indexPath.row] objectID]];
+    NSLog(channel);
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:channel forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
+    //Here is how to remove a channel
+    /*/ When users indicate they are no longer Giants fans, we unsubscribe them.
+     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+     [currentInstallation removeObject:@"Giants" forKey:@"channels"];
+     [currentInstallation saveInBackground];*/
+}
 
 /*
 // Override to support conditional editing of the table view.
