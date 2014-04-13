@@ -7,6 +7,7 @@
 //
 
 #import "RBWTeacherClassViewController.h"
+#import "RBWAppDelegate.h"
 
 @interface RBWTeacherClassViewController ()
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _appDelegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
     // Do any additional setup after loading the view.
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBWAppDelegate.h"
 
 @interface RBWTeacherClassViewController : UIViewController
+
+@property RBWAppDelegate *appDelegate;
 
 @end
