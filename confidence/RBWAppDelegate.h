@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property BOOL pushNotifications;
+@property NSDictionary *sentiments;
+@property NSString *course;
+@property BOOL changed;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "RBWAppDelegate.h"
+#import "RBWSentiment.h"
 #import <Parse/Parse.h>
 
 @implementation RBWAppDelegate
@@ -27,6 +28,9 @@
         UIRemoteNotificationTypeAlert |
         UIRemoteNotificationTypeSound];
     
+    _sentiments = [[NSDictionary alloc] init];
+    _changed = NO;
+    
     NSLog(@"got past push notifaction allowal");
     
     return YES;
@@ -45,9 +49,22 @@
 - (void)application:(UIApplication *)application
         didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"Received push notification!");
-    NSLog(@"%@", [userInfo objectForKey:@"student"]);
+    /*NSLog(@"%@", [userInfo objectForKey:@"student"]);*/
     int value = [userInfo objectForKey:@"value"];
-    
+    RBWSentiment *sentiment = [[RBWSentiment alloc] init];
+    sentiment.username = [userInfo objectForKey:@"student"];
+    sentiment.value = value;
+    NSString *course = [userInfo objectForKey:@"course"];
+    if ([_sentiments objectForKey:course] == nil) {
+        NSMutableArray *sentArray = [[NSMutableArray alloc] init];
+        [sentArray addObject:sentiment];
+        [_sentiments setValue:sentArray forKey:course];
+    } else {
+        [[_sentiments valueForKey:course] addObject:sentiment];
+    }
+    if ([[_sentiments objectForKey:course] count] > 10)
+        [[_sentiments objectForKey:course] removeObjectAtIndex:0];
+    _changed = YES;
     //[PFPush handlePush:userInfo];
 }
 
