@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RBWAppDelegate.h"
+#import "CorePlot-CocoaTouch.h"
 
-@interface RBWTeacherClassViewController : UIViewController
+@interface RBWTeacherClassViewController : UIViewController <CPTPlotDataSource>
 
 @property RBWAppDelegate *appDelegate;
 
