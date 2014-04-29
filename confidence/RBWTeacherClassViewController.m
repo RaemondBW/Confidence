@@ -105,7 +105,7 @@
     NSLog(@"got the the refresh section");
     NSNumber *nextAverage = [self calculateCurrentAverage];
     NSLog(@"got passed the average Calculations");
-    NSLog([nextAverage stringValue]);
+    NSLog(@"%@", [nextAverage stringValue]);
     [_movingAverages insertObject:nextAverage atIndex:0];
     if ([_movingAverages count] > 10)
         [_movingAverages removeObjectAtIndex:10];
@@ -127,6 +127,15 @@
     } else {
         return [_movingAverages objectAtIndex:x];
     }
+}
+
+-(void) viewWillDisappear:(BOOL) animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+        [_timer invalidate];
+    }
+    [super viewWillDisappear:animated];
 }
 
 @end

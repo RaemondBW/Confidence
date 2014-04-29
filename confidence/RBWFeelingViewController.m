@@ -30,7 +30,7 @@
     [super viewDidLoad];
     NSLog(@"view did load called");
     if (_course != nil) {
-        NSLog([_course getString]);
+        NSLog(@"%@", [_course getString]);
     }
     UINavigationController *navCon  = (UINavigationController*) [self.navigationController.viewControllers objectAtIndex:1];
     navCon.navigationItem.title = [_course getString];
