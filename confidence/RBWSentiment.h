@@ -12,6 +12,6 @@
 
 @property NSString *username;
 @property NSString *objectID;
-@property int value;
+@property NSNumber *value;
 
 @end

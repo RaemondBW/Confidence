@@ -9,6 +9,7 @@
 #import "RBWTeacherTableViewController.h"
 #import "RBWTClassCreatorViewController.h"
 #import "RBWCourse.h"
+#import "RBWAppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface RBWTeacherTableViewController ()
@@ -117,6 +118,10 @@
     NSString *channel = @"c";
     channel = [channel stringByAppendingString:[[_courses objectAtIndex:indexPath.row] objectID]];
     NSLog(channel);
+    
+    RBWAppDelegate *delegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.currentCourse = [[_courses objectAtIndex:indexPath.row] objectID];
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation addUniqueObject:channel forKey:@"channels"];
     [currentInstallation saveInBackground];

@@ -8,6 +8,7 @@
 
 #import "RBWTeacherClassViewController.h"
 #import "RBWAppDelegate.h"
+#import "RBWSentiment.h"
 #import "CorePlot-CocoaTouch.h"
 
 @interface RBWTeacherClassViewController ()
@@ -34,15 +35,15 @@
     [self.view addSubview: hostView];
     
     //create the graph and add it to the subview
-    CPTGraph* graph = [[CPTXYGraph alloc] initWithFrame:hostView.bounds];
-    hostView.hostedGraph = graph;
+    _graph = [[CPTXYGraph alloc] initWithFrame:hostView.bounds];
+    hostView.hostedGraph = _graph;
     
     // Get the (default) plotspace from the graph so we can set its x/y ranges
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) _graph.defaultPlotSpace;
     
     // Note that these CPTPlotRange are defined by START and LENGTH (not START and END) !!
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 16 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -4 ) length:CPTDecimalFromFloat( 8 )]];
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 1 ) length:CPTDecimalFromFloat( 3 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 10 )]];
     
     // Create the plot (we do not define actual x/y values yet, these will be supplied by the datasource...)
     CPTScatterPlot* plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
@@ -51,9 +52,15 @@
     plot.dataSource = self;
     
     // Finally, add the created plot to the default plot space of the CPTGraph object we created before
-    [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
+    [_graph addPlot:plot toPlotSpace:_graph.defaultPlotSpace];
     
     // Do any additional setup after loading the view.
+    _movingAverages = [[NSMutableArray alloc] init];
+    for (int i=0; i<10; i++) {
+        [_movingAverages addObject:[NSNumber numberWithInt:2]];
+    }
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshGraph) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +82,34 @@
 
 // This method is here because this class also functions as datasource for our graph
 // Therefore this class implements the CPTPlotDataSource protocol
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
-    return 9; // Our sample graph contains 9 'points'
+-(NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
+    return 10; // Our sample graph contains 10 'points'
+}
+
+-(NSNumber *) calculateCurrentAverage
+{
+    NSNumber *result = [NSNumber numberWithInt:0];
+    for (int i=0; i<[_appDelegate.sentiments count]; i++) {
+        RBWSentiment *sentiment = [_appDelegate.sentiments objectAtIndex:i];
+        result = @([result integerValue] + [[sentiment value] integerValue]);
+    }
+    for (int i=0; i<10-[_appDelegate.sentiments count]; i++) {
+        result = @([result integerValue] + 2);
+    }
+    result = @([result floatValue] / 10);
+    return result;
+}
+
+- (void) refreshGraph
+{
+    NSLog(@"got the the refresh section");
+    NSNumber *nextAverage = [self calculateCurrentAverage];
+    NSLog(@"got passed the average Calculations");
+    NSLog([nextAverage stringValue]);
+    [_movingAverages insertObject:nextAverage atIndex:0];
+    if ([_movingAverages count] > 10)
+        [_movingAverages removeObjectAtIndex:10];
+    [_graph reloadData];
 }
 
 // This method is here because this class also functions as datasource for our graph
@@ -84,7 +117,7 @@
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
     // We need to provide an X or Y (this method will be called for each) value for every index
-    int x = index - 4;
+    int x = index;
     
     // This method is actually called twice per point in the plot, one for the X and one for the Y value
     if(fieldEnum == CPTScatterPlotFieldX)
@@ -92,8 +125,7 @@
         // Return x value, which will, depending on index, be between -4 to 4
         return [NSNumber numberWithInt: x];
     } else {
-        // Return y value, for this example we'll be plotting y = x * x
-        return [NSNumber numberWithInt: x * x];
+        return [_movingAverages objectAtIndex:x];
     }
 }
 
