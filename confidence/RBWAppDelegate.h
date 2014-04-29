@@ -12,7 +12,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property BOOL pushNotifications;
-@property NSDictionary *sentiments;
+//@property NSDictionary *sentiments;
+@property NSMutableArray *sentiments;
+@property NSMutableArray *movingAverages;
+@property NSString *currentCourse;
 @property NSString *course;
 @property BOOL changed;
 

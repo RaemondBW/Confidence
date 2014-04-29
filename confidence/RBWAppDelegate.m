@@ -28,7 +28,10 @@
         UIRemoteNotificationTypeAlert |
         UIRemoteNotificationTypeSound];
     
-    _sentiments = [[NSDictionary alloc] init];
+    //_sentiments = [[NSDictionary alloc] init];
+    _sentiments = [[NSMutableArray alloc] init];
+    _currentCourse = [[NSString alloc] init];
+
     _changed = NO;
     
     NSLog(@"got past push notifaction allowal");
@@ -50,21 +53,27 @@
         didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"Received push notification!");
     /*NSLog(@"%@", [userInfo objectForKey:@"student"]);*/
-    int value = [userInfo objectForKey:@"value"];
-    RBWSentiment *sentiment = [[RBWSentiment alloc] init];
-    sentiment.username = [userInfo objectForKey:@"student"];
-    sentiment.value = value;
     NSString *course = [userInfo objectForKey:@"course"];
-    if ([_sentiments objectForKey:course] == nil) {
-        NSMutableArray *sentArray = [[NSMutableArray alloc] init];
-        [sentArray addObject:sentiment];
-        [_sentiments setValue:sentArray forKey:course];
-    } else {
-        [[_sentiments valueForKey:course] addObject:sentiment];
+    if ([course isEqualToString:_currentCourse]) {
+        NSNumber *value = [NSNumber numberWithInt:[[userInfo objectForKey:@"value"] intValue]];
+        RBWSentiment *sentiment = [[RBWSentiment alloc] init];
+        sentiment.username = [userInfo objectForKey:@"student"];
+        sentiment.value = value;
+        [_sentiments addObject:sentiment];
+        
+        /*if ([_sentiments objectForKey:course] == nil) {
+            NSMutableArray *sentArray = [[NSMutableArray alloc] init];
+            [sentArray addObject:sentiment];
+            [_sentiments setValue:sentArray forUndefinedKey:course];
+        } else {
+            [[_sentiments valueForKey:course] addObject:sentiment];
+        }
+        if ([[_sentiments objectForKey:course] count] > 10)
+            [[_sentiments objectForKey:course] removeObjectAtIndex:0];*/
+        if ([_sentiments count] > 10)
+            [_sentiments removeObjectAtIndex:0];
+        _changed = YES;
     }
-    if ([[_sentiments objectForKey:course] count] > 10)
-        [[_sentiments objectForKey:course] removeObjectAtIndex:0];
-    _changed = YES;
     //[PFPush handlePush:userInfo];
 }
 

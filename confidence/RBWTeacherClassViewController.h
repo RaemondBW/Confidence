@@ -13,5 +13,8 @@
 @interface RBWTeacherClassViewController : UIViewController <CPTPlotDataSource>
 
 @property RBWAppDelegate *appDelegate;
+@property NSMutableArray *movingAverages;
+@property CPTGraph * graph;
+@property NSTimer *timer;
 
 @end
