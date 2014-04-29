@@ -117,7 +117,7 @@
     NSLog(@"called the selector in the teacher controller!");
     NSString *channel = @"c";
     channel = [channel stringByAppendingString:[[_courses objectAtIndex:indexPath.row] objectID]];
-    NSLog(channel);
+    NSLog(@"%@", channel);
     
     RBWAppDelegate *delegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.currentCourse = [[_courses objectAtIndex:indexPath.row] objectID];
