@@ -10,5 +10,6 @@
 
 @interface RBWRegisterViewController : UIViewController
 - (IBAction)signupButton:(id)sender;
+@property UIGestureRecognizer *tapper;
 
 @end

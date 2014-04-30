@@ -32,6 +32,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _tapper = [[UITapGestureRecognizer alloc]
+               initWithTarget:self action:@selector(handleSingleTap:)];
+    _tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:_tapper];
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning

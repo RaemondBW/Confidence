@@ -35,7 +35,22 @@
     [self.view addSubview: hostView];
     
     //create the graph and add it to the subview
+    CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
+    axisLineStyle.lineWidth = 2.0f;
+    CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
+    tickLineStyle.lineWidth = 2.0f;
+    CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
+    tickLineStyle.lineWidth = 1.0f;
+    
     _graph = [[CPTXYGraph alloc] initWithFrame:hostView.bounds];
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *) _graph.axisSet;
+    CPTAxis *y = axisSet.yAxis;
+    y.axisLineStyle = axisLineStyle;
+    y.labelingPolicy = CPTAxisLabelingPolicyNone;
+    y.majorTickLineStyle = gridLineStyle;
+    y.majorTickLength = 1.0f;
+    y.tickDirection = CPTSignNegative;
+    
     hostView.hostedGraph = _graph;
     
     // Get the (default) plotspace from the graph so we can set its x/y ranges
@@ -43,13 +58,21 @@
     
     // Note that these CPTPlotRange are defined by START and LENGTH (not START and END) !!
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 1 ) length:CPTDecimalFromFloat( 3 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 10 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 9 )]];
     
     // Create the plot (we do not define actual x/y values yet, these will be supplied by the datasource...)
     CPTScatterPlot* plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
     
     // Let's keep it simple and let this class act as datasource (therefore we implemtn <CPTPlotDataSource>)
     plot.dataSource = self;
+    
+    CPTMutableLineStyle *lineStyle = [plot.dataLineStyle mutableCopy];
+    lineStyle.lineWidth = 2.5;
+    plot.dataLineStyle = lineStyle;
+    CPTPlotSymbol *symbol = [CPTPlotSymbol ellipsePlotSymbol];
+    symbol.lineStyle = lineStyle;
+    symbol.size = CGSizeMake(6.0f, 6.0f);
+    plot.plotSymbol = symbol;
     
     // Finally, add the created plot to the default plot space of the CPTGraph object we created before
     [_graph addPlot:plot toPlotSpace:_graph.defaultPlotSpace];
