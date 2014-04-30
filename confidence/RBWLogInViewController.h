@@ -10,6 +10,6 @@
 
 @interface RBWLogInViewController : UIViewController
 - (IBAction)logInButton:(id)sender;
-
+@property UIGestureRecognizer *tapper;
 
 @end
