@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-47-gQN">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-47-gQN">
                                 <rect key="frame" x="95" y="518" width="131" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Not a Member?">
@@ -33,7 +33,7 @@
                                     <segue destination="lmQ-CB-scZ" kind="modal" modalTransitionStyle="flipHorizontal" id="NgT-T1-2AB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBa-O3-zjx">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBa-O3-zjx">
                                 <rect key="frame" x="20" y="274" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29164059423730665" green="0.56881899054761187" blue="0.8643973214285714" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,19 +52,19 @@
                                     <action selector="logInButton:" destination="UGW-bx-bo2" eventType="touchUpInside" id="TzG-5D-1mz"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKL-fP-UQg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKL-fP-UQg">
                                 <rect key="frame" x="20" y="190" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z93-Pa-HnL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z93-Pa-HnL">
                                 <rect key="frame" x="20" y="228" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="my feeling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-bY-1Tf">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="my feeling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-bY-1Tf">
                                 <rect key="frame" x="20" y="54" width="280" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="52"/>
@@ -74,6 +74,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.3272567030989797" green="0.72468652679132428" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JBa-O3-zjx" firstAttribute="leading" secondItem="VdT-hH-3pq" secondAttribute="leading" constant="20" id="5Jd-18-UYB"/>
+                            <constraint firstAttribute="trailing" secondItem="kKL-fP-UQg" secondAttribute="trailing" constant="20" id="ETG-nx-Uk9"/>
+                            <constraint firstItem="kKL-fP-UQg" firstAttribute="leading" secondItem="VdT-hH-3pq" secondAttribute="leading" constant="20" id="Hrt-Hx-le3"/>
+                            <constraint firstAttribute="trailing" secondItem="JBa-O3-zjx" secondAttribute="trailing" constant="20" id="LKR-Dw-uos"/>
+                            <constraint firstItem="Ufp-QO-0md" firstAttribute="top" secondItem="uX3-47-gQN" secondAttribute="bottom" constant="20" id="gaK-l9-DLf"/>
+                            <constraint firstAttribute="trailing" secondItem="QiW-bY-1Tf" secondAttribute="trailing" constant="20" id="hJa-kW-4XG"/>
+                            <constraint firstAttribute="trailing" secondItem="z93-Pa-HnL" secondAttribute="trailing" constant="20" id="oLU-fG-1yI"/>
+                            <constraint firstItem="QiW-bY-1Tf" firstAttribute="top" secondItem="aHM-Md-3ep" secondAttribute="bottom" constant="34" id="rcR-mX-cKl"/>
+                            <constraint firstItem="z93-Pa-HnL" firstAttribute="leading" secondItem="VdT-hH-3pq" secondAttribute="leading" constant="20" id="vGm-PL-3eW"/>
+                            <constraint firstItem="QiW-bY-1Tf" firstAttribute="leading" secondItem="VdT-hH-3pq" secondAttribute="leading" constant="20" id="wc9-o4-EWd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="password" destination="z93-Pa-HnL" id="cXv-4Q-FEv"/>
@@ -107,7 +119,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81k-tu-xu9">
                                 <rect key="frame" x="20" y="232" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.85046635839999996" green="0.6186084597" blue="0.16431860540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.24672246" green="0.46822703910000002" blue="0.70382254460000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Student">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -126,7 +138,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9G9-O8-4GG">
                                 <rect key="frame" x="20" y="311" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.85046635839999996" green="0.6186084597" blue="0.16431860540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.24672246" green="0.46822703910000002" blue="0.70382254460000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Teacher">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -171,7 +183,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y9I-sT-YSA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32725670309999999" green="0.72468652680000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Eit-65-keP">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -180,6 +192,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.32725670309999999" green="0.72468652680000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="MQj-4w-eAx" kind="push" id="MO1-QS-f3t"/>
                                 </connections>
@@ -413,10 +426,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start feeling now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX8-ID-T1Y">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX8-ID-T1Y">
                                 <rect key="frame" x="20" y="76" width="280" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="37"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
                             </label>
@@ -523,7 +536,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGe-hz-ZGH">
                                 <rect key="frame" x="39" y="235" width="243" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="I understand :)">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

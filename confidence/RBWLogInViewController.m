@@ -7,6 +7,7 @@
 //
 
 #import "RBWLogInViewController.h"
+#import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 
 
@@ -79,12 +80,19 @@
 
 - (IBAction)logInButton:(id)sender {
     if (_username.text.length > 0 && _password.text.length > 0) {
-        [PFUser logInWithUsernameInBackground:_username.text password:_password.text block:^(PFUser *user, NSError *error) {
-            if (!error) {
-                NSLog(@"logged in user!");
-                [self performSegueWithIdentifier:@"loginTransition" sender:self];
-            }
-        }];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            // Do something...
+            [PFUser logInWithUsernameInBackground:_username.text password:_password.text block:^(PFUser *user, NSError *error) {
+                if (!error) {
+                    NSLog(@"logged in user!");
+                    [self performSegueWithIdentifier:@"loginTransition" sender:self];
+                }
+            }];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+        
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Missing Information"
                                     message:@"Make sure you fill out all of the information!"
