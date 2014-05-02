@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D24DA4B18FE0F2D0096B3BF /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D24DA4918FE0F1B0096B3BF /* libCorePlot-CocoaTouch.a */; };
 		3D24DA4E18FE11EF0096B3BF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D24DA4D18FE11EF0096B3BF /* Parse.framework */; };
+		3D3FFAF719132404009023AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FFAF619132404009023AA /* MBProgressHUD.m */; };
 		3DBDBC8E18F2893C006658EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBDBC8D18F2893C006658EC /* Foundation.framework */; };
 		3DBDBC9018F2893C006658EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBDBC8F18F2893C006658EC /* CoreGraphics.framework */; };
 		3DBDBC9218F2893C006658EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBDBC9118F2893C006658EC /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 		3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB89F18F3B875006E4AC9 /* RBWCourse.m */; };
 		3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */; };
 		3DDAB8A618F4A2DA006E4AC9 /* RBWStudentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */; };
+		3DDF68BD1911C63800A05534 /* CourseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF68BC1911C63800A05534 /* CourseTableCell.xib */; };
+		3DDF68C01911C8D200A05534 /* RBWCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */; };
 		3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */; };
 		3DF81C7818F9C93400F46EA2 /* RBWTeacherClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7718F9C93400F46EA2 /* RBWTeacherClassViewController.m */; };
 		3DF81C7E18FA272300F46EA2 /* RBWSentiment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C7D18FA272300F46EA2 /* RBWSentiment.m */; };
@@ -135,6 +138,8 @@
 		3D24DA4718FE0E8C0096B3BF /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		3D24DA4918FE0F1B0096B3BF /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		3D24DA4D18FE11EF0096B3BF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		3D3FFAF519132404009023AA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3D3FFAF619132404009023AA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3DBDBC8A18F2893C006658EC /* confidence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = confidence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBDBC8D18F2893C006658EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DBDBC8F18F2893C006658EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -175,6 +180,9 @@
 		3DDAB8A218F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWSelectCoursesTableViewController.m; sourceTree = "<group>"; };
 		3DDAB8A418F4A2DA006E4AC9 /* RBWStudentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWStudentTableViewController.h; sourceTree = "<group>"; };
 		3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWStudentTableViewController.m; sourceTree = "<group>"; };
+		3DDF68BC1911C63800A05534 /* CourseTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseTableCell.xib; path = ../CourseTableCell.xib; sourceTree = "<group>"; };
+		3DDF68BE1911C8D200A05534 /* RBWCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWCourseTableViewCell.h; sourceTree = "<group>"; };
+		3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWCourseTableViewCell.m; sourceTree = "<group>"; };
 		3DF81C7318F667AF00F46EA2 /* RBWFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWFeelingViewController.h; sourceTree = "<group>"; };
 		3DF81C7418F667AF00F46EA2 /* RBWFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWFeelingViewController.m; sourceTree = "<group>"; };
 		3DF81C7618F9C93400F46EA2 /* RBWTeacherClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWTeacherClassViewController.h; sourceTree = "<group>"; };
@@ -353,8 +361,11 @@
 			isa = PBXGroup;
 			children = (
 				3DDAB88F18F349CD006E4AC9 /* RBWRegisterViewController.h */,
+				3DDF68BC1911C63800A05534 /* CourseTableCell.xib */,
 				3DDAB89018F349CD006E4AC9 /* RBWRegisterViewController.m */,
 				3DBDBC9C18F2893C006658EC /* RBWAppDelegate.h */,
+				3D3FFAF519132404009023AA /* MBProgressHUD.h */,
+				3D3FFAF619132404009023AA /* MBProgressHUD.m */,
 				3DBDBC9D18F2893C006658EC /* RBWAppDelegate.m */,
 				3DDAB88A18F32ACD006E4AC9 /* RBWLogInViewController.h */,
 				3DDAB88B18F32ACD006E4AC9 /* RBWLogInViewController.m */,
@@ -376,6 +387,8 @@
 				3DDAB8A518F4A2DA006E4AC9 /* RBWStudentTableViewController.m */,
 				3DF81C7C18FA272300F46EA2 /* RBWSentiment.h */,
 				3DF81C7D18FA272300F46EA2 /* RBWSentiment.m */,
+				3DDF68BE1911C8D200A05534 /* RBWCourseTableViewCell.h */,
+				3DDF68BF1911C8D200A05534 /* RBWCourseTableViewCell.m */,
 			);
 			path = confidence;
 			sourceTree = "<group>";
@@ -486,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDAB88E18F32C71006E4AC9 /* Main.storyboard in Resources */,
+				3DDF68BD1911C63800A05534 /* CourseTableCell.xib in Resources */,
 				3DBDBC9818F2893C006658EC /* InfoPlist.strings in Resources */,
 				3DBDBCA018F2893C006658EC /* Images.xcassets in Resources */,
 			);
@@ -512,12 +526,14 @@
 				3DF81C7818F9C93400F46EA2 /* RBWTeacherClassViewController.m in Sources */,
 				3DDAB89118F349CD006E4AC9 /* RBWRegisterViewController.m in Sources */,
 				3DDAB8A018F3B875006E4AC9 /* RBWCourse.m in Sources */,
+				3DDF68C01911C8D200A05534 /* RBWCourseTableViewCell.m in Sources */,
 				3DBDBC9A18F2893C006658EC /* main.m in Sources */,
 				3DDAB88C18F32ACD006E4AC9 /* RBWLogInViewController.m in Sources */,
 				3DDAB8A318F46D94006E4AC9 /* RBWSelectCoursesTableViewController.m in Sources */,
 				3DDAB89718F3B3E8006E4AC9 /* RBWTClassCreatorViewController.m in Sources */,
 				3DF81C7518F667AF00F46EA2 /* RBWFeelingViewController.m in Sources */,
 				3DF81C7E18FA272300F46EA2 /* RBWSentiment.m in Sources */,
+				3D3FFAF719132404009023AA /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

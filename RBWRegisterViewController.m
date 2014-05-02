@@ -7,6 +7,7 @@
 //
 
 #import "RBWRegisterViewController.h"
+#import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 
 @interface RBWRegisterViewController ()
@@ -66,16 +67,21 @@
         newUser.username = _username.text;
         newUser.email = _email.text;
         newUser.password = _password.text;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"Registration success!");
+                    [self performSegueWithIdentifier:@"registerTransition" sender:self];
+                }
+                else {
+                    NSLog(@"There was an error in registration");
+                }
+            }];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
         
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                NSLog(@"Registration success!");
-                [self performSegueWithIdentifier:@"registerTransition" sender:self];
-            }
-            else {
-                NSLog(@"There was an error in registration");
-            }
-        }];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Missing Information"
                                     message:@"Make sure you fill out all of the information!"
