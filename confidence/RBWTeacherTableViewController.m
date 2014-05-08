@@ -79,13 +79,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CustomCell";
-    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     RBWCourse *item = [_courses objectAtIndex:indexPath.row];
-    cell.textLabel.text = [item getString];//item.course;*/
+    cell.textLabel.text = [item getString];//item.course;
     // Configure the cell...
     
-    RBWCourseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    /*RBWCourseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
         NSLog(@"Called");
@@ -96,7 +96,7 @@
     }
     RBWCourse *item = [_courses objectAtIndex:indexPath.row];
     cell.schoolLable.text = item.school;
-    cell.courseLabel.text = item.course;
+    cell.courseLabel.text = item.course;*/
 
     return cell;
 }

@@ -12,9 +12,11 @@
 
 @interface RBWTeacherClassViewController : UIViewController <CPTPlotDataSource>
 
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *hostView;
 @property RBWAppDelegate *appDelegate;
 @property NSMutableArray *movingAverages;
-@property CPTGraph * graph;
+@property CPTGraph *graph;
 @property NSTimer *timer;
+@property CPTScatterPlot *plot;
 
 @end

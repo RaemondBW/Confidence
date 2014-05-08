@@ -514,9 +514,19 @@
                     <view key="view" contentMode="scaleToFill" id="rva-UQ-1NN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Nc-g9S" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="20" y="122" width="280" height="323"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.32725670309999999" green="0.72468652680000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Course View" id="bO4-P1-zlN"/>
+                    <connections>
+                        <outlet property="hostView" destination="BSb-Nc-g9S" id="AXs-oI-1DU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jH-jT-ESE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -621,6 +631,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bzn-eL-5KI"/>
+        <segue reference="G2T-D8-R8R"/>
     </inferredMetricsTieBreakers>
 </document>
