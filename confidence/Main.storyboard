@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UGW-bx-bo2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UGW-bx-bo2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -224,6 +224,11 @@
                         <barButtonItem systemItem="cancel" id="9jF-je-awa"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="My Courses" id="Nf5-2j-yQq">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0dY-OE-S7Y">
+                            <connections>
+                                <segue destination="UGW-bx-bo2" kind="modal" id="6xR-gH-Nee"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oxl-oi-FDZ">
                             <connections>
                                 <segue destination="BnF-zn-6ke" kind="modal" id="Q6Q-wj-JBi"/>
@@ -308,6 +313,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Courses" id="7XQ-67-TWB">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ITc-48-gQ6">
+                            <connections>
+                                <segue destination="UGW-bx-bo2" kind="modal" id="3Vs-oE-RWu"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Q7-v5-0Ib">
                             <connections>
                                 <segue destination="8e0-OV-gJ3" kind="modal" id="zO4-JQ-upD"/>
@@ -677,5 +687,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="G2T-D8-R8R"/>
+        <segue reference="3Vs-oE-RWu"/>
     </inferredMetricsTieBreakers>
 </document>
