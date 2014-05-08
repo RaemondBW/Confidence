@@ -87,7 +87,16 @@
             [PFUser logInWithUsernameInBackground:_username.text password:_password.text block:^(PFUser *user, NSError *error) {
                 if (!error) {
                     NSLog(@"logged in user!");
+                    
                     [self performSegueWithIdentifier:@"loginTransition" sender:self];
+                } else {
+                    //here
+                    [[[UIAlertView alloc] initWithTitle:@"Authentication Failure"
+                                                message:@"Please input username and password"
+                                               delegate:nil
+                                      cancelButtonTitle:@"ok"
+                                      otherButtonTitles:nil] show];
+                    // to here
                 }
             }];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -95,10 +104,13 @@
         
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Missing Information"
-                                    message:@"Make sure you fill out all of the information!"
+                                    message:@"Please input username and password"
                                    delegate:nil
                           cancelButtonTitle:@"ok"
                           otherButtonTitles:nil] show];
     }
 }
+
+
+
 @end
