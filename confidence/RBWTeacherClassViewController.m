@@ -33,6 +33,10 @@
     [super viewDidLoad];
     _appDelegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    if (_course != nil) {
+        [_courseName setText:_course];
+    }
+    
     _graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
 	_graph.plotAreaFrame.masksToBorder = NO;
 	self.hostView.hostedGraph = _graph;
@@ -51,6 +55,7 @@
     //_graph = [[CPTXYGraph alloc] initWithFrame:_hostView.bounds];
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) _graph.axisSet;
     axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromDouble(1.0);
+    
     /*CPTAxis *y = axisSet.yAxis;
     y.axisLineStyle = axisLineStyle;
     y.labelingPolicy = CPTAxisLabelingPolicyNone;
@@ -150,15 +155,19 @@
     lineStyle.lineWidth = 2.5;
     //if ([[NSString stringWithFormat:@"%.2f",_movingAverages[0]] isEqualToString:[NSString stringWithFormat:@"%.2f",_movingAverages[0]]])
     //    lineStyle.lineColor = [CPTColor grayColor];
-    if ([[_movingAverages objectAtIndex:0] floatValue] < [[_movingAverages objectAtIndex:9] floatValue])
+    if ([[_movingAverages objectAtIndex:0] floatValue] == [[_movingAverages objectAtIndex:9] floatValue])
+        lineStyle.lineColor = [CPTColor grayColor];
+    else if ([[_movingAverages objectAtIndex:0] floatValue] < [[_movingAverages objectAtIndex:9] floatValue])
         lineStyle.lineColor = [CPTColor redColor];//[CPTColor colorWithComponentRed:255.0f/255.0f green:108.0f/255.0f blue:108.0f/255.0f alpha:1.0f];
     else
         lineStyle.lineColor = [CPTColor greenColor]; //[CPTColor colorWithComponentRed:106.0f/255.0f green:204.0f/255.0f blue:106.0f/255.0f alpha:1.0f];
     
     //if ([[NSString stringWithFormat:@"%.2f",_movingAverages[0]] isEqualToString:[NSString stringWithFormat:@"%.2f",2.00f]])
     //    _graph.fill = nil;
-    
-    if ([[_movingAverages objectAtIndex:0] floatValue] > 2)
+    //if ([[NSString stringWithFormat:@"%.2f",[[_movingAverages objectAtIndex:0] floatValue]] isEqualToString:[NSString stringWithFormat:@"%.2f",2.00f]])
+    if ([[_movingAverages objectAtIndex:0] floatValue] == 2.0f)
+        _graph.fill = nil;
+    else if ([[_movingAverages objectAtIndex:0] floatValue] > 2)
         _graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:106.0f/255.0f green:204.0f/255.0f blue:106.0f/255.0f alpha:.4f]];
     else
         _graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:255.0f/255.0f green:108.0f/255.0f blue:108.0f/255.0f alpha:.4f]];

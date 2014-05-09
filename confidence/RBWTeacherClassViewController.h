@@ -18,5 +18,7 @@
 @property CPTGraph *graph;
 @property NSTimer *timer;
 @property CPTScatterPlot *plot;
+@property NSString *course;
+@property (weak, nonatomic) IBOutlet UILabel *courseName;
 
 @end

@@ -11,15 +11,18 @@
 #import "RBWCourse.h"
 #import "RBWAppDelegate.h"
 #import "RBWCourseTableViewCell.h"
+#import "RBWTeacherClassViewController.h"
 #import <Parse/Parse.h>
 
 @interface RBWTeacherTableViewController ()
 
 @property NSMutableArray *courses;
+@property RBWTeacherClassViewController *controller;
 
 @end
 
 @implementation RBWTeacherTableViewController
+
 
 -(IBAction) unwindToList:(UIStoryboardSegue *)segue
 {
@@ -127,17 +130,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"called the selector in the teacher controller!");
-    NSString *channel = @"c";
-    channel = [channel stringByAppendingString:[[_courses objectAtIndex:indexPath.row] objectID]];
-    NSLog(@"%@", channel);
-    
-    RBWAppDelegate *delegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
-    delegate.currentCourse = [[_courses objectAtIndex:indexPath.row] objectID];
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:channel forKey:@"channels"];
-    [currentInstallation saveInBackground];
+    RBWCourse *course = [_courses objectAtIndex:indexPath.row];
+    if ([course objectID] == nil) {
+        PFQuery *query = [PFQuery queryWithClassName:@"courses"];
+        [query whereKey:@"courseName" equalTo:[course course]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                NSLog([course course]);
+                for (PFObject *object in objects) {
+                    course.objectID = object[@"objectId"];
+                    NSLog(course.objectID);
+                }
+                NSString *channel = @"c";
+                channel = [channel stringByAppendingString:[course objectID]];
+                RBWAppDelegate *delegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
+                delegate.currentCourse = [course objectID];
+                
+                PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+                [currentInstallation addUniqueObject:channel forKey:@"channels"];
+                [currentInstallation saveInBackground];
+                _controller.course = [course getString];
+            }
+        }];
+    } else {
+        NSLog(@"called the selector in the teacher controller!");
+        NSString *channel = @"c";
+        channel = [channel stringByAppendingString:[course objectID]];
+        NSLog(@"%@", channel);
+        
+        RBWAppDelegate *delegate = (RBWAppDelegate *)[[UIApplication sharedApplication] delegate];
+        delegate.currentCourse = [course objectID];
+        
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:channel forKey:@"channels"];
+        [currentInstallation saveInBackground];
+        
+        _controller.course = [course getString];
+    }
     
     //Here is how to remove a channel
     /*/ When users indicate they are no longer Giants fans, we unsubscribe them.
@@ -184,7 +213,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -192,8 +221,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    _controller = (RBWTeacherClassViewController *) segue.destinationViewController;
 }
-*/
+
 
 
 @end
