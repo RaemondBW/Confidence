@@ -12,5 +12,6 @@
 @interface RBWTClassCreatorViewController : UIViewController
 
 @property RBWCourse *course;
+@property UIGestureRecognizer *tapper;
 
 @end
