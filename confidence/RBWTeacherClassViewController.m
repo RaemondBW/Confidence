@@ -54,7 +54,7 @@
     
     //_graph = [[CPTXYGraph alloc] initWithFrame:_hostView.bounds];
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) _graph.axisSet;
-    axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromDouble(1.0);
+    axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromDouble(-1.0);
     
     /*CPTAxis *y = axisSet.yAxis;
     y.axisLineStyle = axisLineStyle;
@@ -70,7 +70,7 @@
     
     
     // Note that these CPTPlotRange are defined by START and LENGTH (not START and END) !!
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 1.0 ) length:CPTDecimalFromFloat( 2.0 )];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -1.0 ) length:CPTDecimalFromFloat( 2.0 )];
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -0.5 ) length:CPTDecimalFromFloat( 10.0 )];
     
     // Create the plot (we do not define actual x/y values yet, these will be supplied by the datasource...)
@@ -97,7 +97,7 @@
     // Do any additional setup after loading the view.
     _movingAverages = [[NSMutableArray alloc] init];
     for (int i=0; i<10; i++) {
-        [_movingAverages addObject:[NSNumber numberWithInt:2]];
+        [_movingAverages addObject:[NSNumber numberWithInt:0]];
     }
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshGraph) userInfo:nil repeats:YES];
@@ -134,7 +134,7 @@
         result = @([result integerValue] + [[sentiment value] integerValue]);
     }
     for (int i=0; i<10-[_appDelegate.sentiments count]; i++) {
-        result = @([result integerValue] + 2);
+        result = @([result integerValue]);
     }
     result = @([result floatValue] / 10.00f);
     return result;
@@ -165,9 +165,9 @@
     //if ([[NSString stringWithFormat:@"%.2f",_movingAverages[0]] isEqualToString:[NSString stringWithFormat:@"%.2f",2.00f]])
     //    _graph.fill = nil;
     //if ([[NSString stringWithFormat:@"%.2f",[[_movingAverages objectAtIndex:0] floatValue]] isEqualToString:[NSString stringWithFormat:@"%.2f",2.00f]])
-    if ([[_movingAverages objectAtIndex:0] floatValue] == 2.0f)
+    if ([[_movingAverages objectAtIndex:0] floatValue] == 0.0f)
         _graph.fill = nil;
-    else if ([[_movingAverages objectAtIndex:0] floatValue] > 2)
+    else if ([[_movingAverages objectAtIndex:0] floatValue] > 0)
         _graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:106.0f/255.0f green:204.0f/255.0f blue:106.0f/255.0f alpha:.4f]];
     else
         _graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:255.0f/255.0f green:108.0f/255.0f blue:108.0f/255.0f alpha:.4f]];
